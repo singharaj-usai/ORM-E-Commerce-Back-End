@@ -39,8 +39,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // create a new category
+//11-ins_restful-routes
+
+router.post('/', async (req, res) => {
+  try {
+    const categoryData = await Category.create({category_name: req.body});
+    // 200 status code means the request is successful
+    res.status(200).json(categoryData);
+  } catch (err) {
+    // 400 status code means the server could not understand the request
+    res.status(400).json(err);
+  }
 });
 
 router.put('/:id', (req, res) => {
