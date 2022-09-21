@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   try {
-  const categoryData = await Category.findAll({
+  const categoryData = await Product.findAll({
     include: [{ model: Category }, { attributes: ['id','category_name'] }, { model: Tag }, { attributes: ['id','tag_name'] }],
     attributes: ['id','product_name','price','stock']
     });
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   try {
-    const categoryData = await Driver.findByPk({id: req.params.id}, {
+    const categoryData = await Product.findByPk({id: req.params.id}, {
       include: [{ model: Category }, { attributes: ['id','category_name'] }, { model: Tag }, { attributes: ['id','tag_name'] }],
       attributes: ['id','product_name','price','stock']
       });

@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categoryData = await Driver.findByPk(req.params.id, {
+    const categoryData = await Category.findByPk(req.params.id, {
       include: [{ model: Product }, { attributes: ['id','product_name','price','stock'] }],
       attributes: ['id','category_name']
       });
