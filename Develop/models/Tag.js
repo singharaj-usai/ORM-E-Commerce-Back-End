@@ -21,7 +21,7 @@ id: {
 },
 //tag_name
 //String
-id: {
+tag_name: {
   type: DataTypes.STRING,
 
 },
