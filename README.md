@@ -1,9 +1,7 @@
-﻿# ORM E-Commerce Back End
+﻿## ORM E-Commerce Back End
 
 ## Index
 
-- [ORM E-Commerce Back End](#orm-e-commerce-back-end)
-  - [Index](#index)
 - [Overview](#overview)
   - [Summary](#summary)
   - [Links](#links)
