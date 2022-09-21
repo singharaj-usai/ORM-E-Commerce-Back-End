@@ -40,10 +40,7 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
   // create a new tag
   try {
-    const categoryData = await Tag.create({tag_name: req.body},{where: {
-      id: req.params.id,
-    },
-  });
+    const categoryData = await Tag.create({tag_name: req.body.tag_name},);
     // 200 status code means the request is successful
     res.status(200).json(categoryData);
   } catch (err) {
