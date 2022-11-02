@@ -6,6 +6,7 @@
   - [Summary](#summary)
   - [Links](#links)
   - [Made With](#made-with)
+  - [Special Thanks To](#special-thanks-to)
 
 # Overview
 
@@ -13,11 +14,15 @@
 
 ## Summary
 
-💻 Currently something is broken in the product price, I will be fixing this soon but most things should work as I've used our class activity notes to do the crud routes.
+💻 E-Commerce Backend that uses Express.JS to connect to the MySQL database.
 
 * Instructions
-    * Download the repo to your machine.
-    * Work in Progress, not finished but submitted for a grade.
+    * Download the repo to your machine using git clone.
+    * On your IDE, use the terminal and type `npm i` and enter to install node_modules.
+    * Type `mysql -u root -p` and enter your MySQL password.
+    * Type `source db/schema.sql` to make SQL create the schema.
+    * Exit the MySQL and type `npm run seed` to seed the database.
+    * Type `npm start` to watch the backend being connected on your terminal!
 
 ## Links
 
@@ -28,3 +33,8 @@ Repository URL: https://github.com/singharaj-usai/ORM-E-Commerce-Back-End
 ## Made With
 
 * ORM and SQL
+
+## Special Thanks To
+
+* My tutor
+* Grader feedback
