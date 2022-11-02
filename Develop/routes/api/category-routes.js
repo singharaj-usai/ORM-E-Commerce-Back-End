@@ -10,8 +10,7 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Products
   try {
   const categoryData = await Category.findAll({
-    include: [{ model: Product }, { attributes: ['id','product_name','price','stock'] }],
-    attributes: ['id','category_name']
+    include: [{ model: Product }, { attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] }],
     });
     res.status(200).json(categoryData);
   } catch (err) {
@@ -23,9 +22,8 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categoryData = await Category.findByPk(req.params.id, {
-      include: [{ model: Product }, { attributes: ['id','product_name','price','stock'] }],
-      attributes: ['id','category_name']
+    const categoryData = await Category.findOne(req.params.id, {
+      include: [{ model: Product }, { attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] }],
       });
 
     if (!categoryData) {
@@ -43,7 +41,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const categoryData = await Category.create({category_name: req.body});
+    const categoryData = await Category.create({category_name: req.body.category_name});
     // 200 status code means the request is successful
     res.status(200).json(categoryData);
   } catch (err) {
