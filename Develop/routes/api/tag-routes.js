@@ -8,8 +8,7 @@ router.get('/', async(req, res) => {
   // be sure to include its associated Product data
   try {
     const categoryData = await Tag.findAll({
-      include: [{ model: Product }, { attributes: ['id','product_name'] }, {as: 'product_tags'}],
-      attributes: ['id','tag_name']
+      include: [{ model: Product }, { attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] }],
       });
       res.status(200).json(categoryData);
     } catch (err) {
@@ -21,13 +20,12 @@ router.get('/:id', async(req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   try {
-    const categoryData = await Tag.findByPk({id: req.params.id}, {
-      include: [{ model: Product }, { attributes: ['id','product_name','price','stock'] }],
-      attributes: ['id','tag_name']
+    const categoryData = await Tag.findOne({id: req.params.id}, {
+      include: [{ model: Product }, { attributes: ['id','product_name','price','stock', 'category_id'] }],
       });
 
     if (!categoryData) {
-      res.status(404).json({ message: 'No driver found with that id!' });
+      res.status(404).json({ message: 'No tag found with that id!' });
       return;
     }
 
@@ -52,13 +50,13 @@ router.post('/', async(req, res) => {
 router.put('/:id', async(req, res) => {
   // update a tag's name by its `id` value
   try {
-    const categoryData = await Tag.update({tag_name: req.body.tag_name}, {
+    const categoryData = await Tag.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
     if (!categoryData[0]) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({ message: 'No tag with this id!' });
       return;
     }
     res.status(200).json(categoryData);
