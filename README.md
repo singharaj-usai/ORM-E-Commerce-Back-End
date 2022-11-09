@@ -5,6 +5,7 @@
 - [Overview](#overview)
   - [Summary](#summary)
   - [Links](#links)
+  - [Screenshot](#screenshot)
   - [Made With](#made-with)
   - [Special Thanks To](#special-thanks-to)
 
@@ -26,9 +27,13 @@
 
 ## Links
 
-Video Demo Link: https://drive.google.com/file/d/1KtaXEN7fGPCwOFaFA3LeMsGii2_DJORl/view?usp=sharing
-
 Repository URL: https://github.com/singharaj-usai/ORM-E-Commerce-Back-End
+
+## Screenshot
+
+* Seeded
+  * When `npm run seed` is entered, all of the data is seeded.
+![](Screenshot/Screenshot%202022-11-09%20181101.png)
 
 ## Made With
 
